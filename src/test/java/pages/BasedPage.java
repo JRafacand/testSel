@@ -52,6 +52,14 @@ public class BasedPage {
         findElement(locator).click();
     }
 
+    public void clickElementMonth(String locator, String month) {
+        long startTime = System.currentTimeMillis();
+        findElement(locator).click();
+        long endTime = System.currentTimeMillis();
+        long loadTime = (endTime - startTime) / 1000;
+        System.out.println("Load time: "+ loadTime + " segundos, Page Month: "+ month );
+    }
+
     public void clickElemSelector(String locator) {
         findElementS(locator).click();
     }
@@ -90,20 +98,20 @@ public class BasedPage {
 
     public void clickMonth(String month) {
         if (month.equals("Enero, Marzo, Mayo, Julio")) {
-            clickElement("//a[normalize-space()='Jan']");
-            clickElement("//a[normalize-space()='Mar']");
-            clickElement("//a[normalize-space()='May']");
-            clickElement("//a[normalize-space()='Jul']");
+            clickElementMonth("//a[normalize-space()='Jan']", "January");
+            clickElementMonth("//a[normalize-space()='Mar']", "March");
+            clickElementMonth("//a[normalize-space()='May']", "May"   );
+            clickElementMonth("//a[normalize-space()='Jul']", "July");
         } else if (month.equals("Febreo, Abril, Junio, Agosto")) {
-            clickElement("//a[normalize-space()='Feb']");
-            clickElement("//a[normalize-space()='Apr']");
-            clickElement("//a[normalize-space()='Jun']");
-            clickElement("//a[normalize-space()='Aug']");
+            clickElementMonth("//a[normalize-space()='Feb']", "February");
+            clickElementMonth("//a[normalize-space()='Apr']", "April");
+            clickElementMonth("//a[normalize-space()='Jun']", "June");
+            clickElementMonth("//a[normalize-space()='Aug']", "August");
         } else if (month.equals("Septiembre, Octubre, Noviembre, Diciembre")) {
-            clickElement("//a[normalize-space()='Sep']");
-            clickElement("//a[normalize-space()='Oct']");
-            clickElement("//a[normalize-space()='Nov']");
-            clickElement("//a[normalize-space()='Dec']");
+            clickElementMonth("//a[normalize-space()='Sep']", "September");
+            clickElementMonth("//a[normalize-space()='Oct']", "October");
+            clickElementMonth("//a[normalize-space()='Nov']", "November");
+            clickElementMonth("//a[normalize-space()='Dec']", "December");
 
         }
 

@@ -42,22 +42,22 @@ public class ObjectPage extends BasedPage {
         clickElemSelector("Availability");
         sleepForSeconds(2);
     }
-
+    public long loadTtime;
     public void selectYear(String year, String month) {
         //clickElement("//div[@id='j_idt102']//span[@class='ui-icon ui-icon-triangle-1-s ui-c']");
         clickElement("//label[@id='j_idt102_label']");
         sleepForSeconds(5);
         if (year.equals("2024")) {
             String yearPath = String.format(yearSelect, 3);
-            clickElement(yearPath); //año
+            clickElement(yearPath);
             sleepForSeconds(5);
             clickMonth(month);
-        } else if (year.equals("2025")) {
+            } else if (year.equals("2025")) {
             String yearPath = String.format(yearSelect, 4);
             clickElement(yearPath);//año
             sleepForSeconds(5);
             clickMonth(month);
-        } else if (year.equals("2026")) {
+            } else if (year.equals("2026")) {
             String yearPath = String.format(yearSelect, 5);
             clickElement(yearPath);//año
             sleepForSeconds(5);

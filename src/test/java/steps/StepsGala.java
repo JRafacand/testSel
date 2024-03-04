@@ -26,6 +26,7 @@ public class StepsGala {
     @Given ("Selection year {string} and click on the active {string}")
     public void selectYearMonth(String year, String month){
         landingPage.selectYear(year, month);
+        System.out.println("Load time Page Steps: " + landingPage.loadTtime);
         ;
     }
 }
