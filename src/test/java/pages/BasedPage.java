@@ -8,11 +8,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 
 public class BasedPage {
-    protected static WebDriver driver;
+       protected static WebDriver driver;
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     static {
@@ -22,10 +23,7 @@ public class BasedPage {
 
     public BasedPage(WebDriver driver) {
         BasedPage.driver = driver;
-
-    }
-
-    public WebElement findElement(String locator) {
+    }    public WebElement findElement(String locator) {
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
     }
 
@@ -52,12 +50,14 @@ public class BasedPage {
         findElement(locator).click();
     }
 
+    public long loadTime;
     public void clickElementMonth(String locator, String month) {
         long startTime = System.currentTimeMillis();
         findElement(locator).click();
         long endTime = System.currentTimeMillis();
-        long loadTime = (endTime - startTime) / 1000;
+        loadTime = (endTime - startTime) / 1000;
         System.out.println("Load time: "+ loadTime + " segundos, Page Month: "+ month );
+        Assert.assertFalse(loadTime > 10, "The page took more than 10 seconds to load");
     }
 
     public void clickElemSelector(String locator) {

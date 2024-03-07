@@ -43,8 +43,9 @@ public class ObjectPage extends BasedPage {
         sleepForSeconds(2);
     }
     public long loadTtime;
+
+
     public void selectYear(String year, String month) {
-        //clickElement("//div[@id='j_idt102']//span[@class='ui-icon ui-icon-triangle-1-s ui-c']");
         clickElement("//label[@id='j_idt102_label']");
         sleepForSeconds(5);
         if (year.equals("2024")) {

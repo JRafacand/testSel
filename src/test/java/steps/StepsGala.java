@@ -3,12 +3,12 @@ package steps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
+import pages.BasedPage;
 import pages.ObjectPage;
 
 public class StepsGala {
     ObjectPage landingPage = new ObjectPage();
-
-
     @Given("Navigate to the login page")
     public void navigatorLogin() {
         landingPage.navigateTo();
@@ -26,7 +26,6 @@ public class StepsGala {
     @Given ("Selection year {string} and click on the active {string}")
     public void selectYearMonth(String year, String month){
         landingPage.selectYear(year, month);
-        System.out.println("Load time Page Steps: " + landingPage.loadTtime);
         ;
     }
 }
